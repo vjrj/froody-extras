@@ -1,0 +1,17 @@
+export GRP="io.github.froodyapp";export ART="api";export PAC="$GRP.$ART";
+export SWGFILE="/home/$USER/aaCurrent/froody-extras/api/swagger.yaml"
+
+# git clone https://github.com/swagger-api/swagger-codegen.git
+# mvn clean package -DskipTests
+
+java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate \
+--api-package "$PAC.api" \
+--invoker-package "$PAC.invoker" \
+--model-package "$PAC.model"﻿ \
+-D groupId="$GRP" \
+-D artifactId="$ART" \
+-D hideGenerationTimestamp=true \
+-D serializableModel=true \
+-i "$SWGFILE" \
+-l java --library=okhttp-gson \
+-o /tmp/frood-android__gen/ 

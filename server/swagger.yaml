@@ -1,0 +1,429 @@
+###############################
+######
+######     GENERAL
+######
+###############################
+swagger: '2.0'
+info:
+  title: Froody API
+  description: API for Froody application
+  version: "1.0.0"
+host: "fruity-app.at" # the domain of the service
+basePath: /froody  # subfolder on server
+schemes: # array of all schemes that your API supports (https, ..)
+  - https
+produces:
+  - application/json
+paths:
+
+###############################
+######
+######     ENDPOINTS 
+######
+###############################
+
+  /block/get:
+    get:
+      description: Entry[ ] ** Get entries contained in block
+      parameters:
+        - name: geohash
+          in: query
+          type: string
+          format: string
+          required: true
+          minLength: 5
+          description: Entry.geohash ** Geohash which should be matched
+        - name: minModificationDate
+          in: query
+          description: BlockInfo.modificationDate ** Timestamp of last known block modification
+          required: true
+          type: string
+          format: date-time
+      tags:
+        - Block
+      responses:
+        200:
+          description: Entry[ ] ** An array of FroodyEntry's (entry details excluded)
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FroodyEntry'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ResponseOk'
+            
+## END: /block/get
+##################################
+  /block/info:
+    get:
+      description: Get informations about of or around block/geohash
+      parameters:
+        - name: geohash
+          in: query
+          type: string
+          format: string
+          required: true
+          minLength: 9
+          description: BlockInfo.geohash ** Geohash (=position) 
+        - name: minModificationDate
+          in: query
+          description: BlockInfo.modificationDate ** Timestamp of last known block modification. Make 3 weeks ago to get everything.
+          required: true
+          type: string
+          format: date-time
+      tags:
+        - Block
+      responses:
+        200:
+          description: BlockInfo[ ] ** An array of BlockInfo's
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BlockInfo'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ResponseOk'
+## END: /block/info
+##################################
+  /entry/byId: # done
+    get:
+      description: Entry ** Get details of one entry
+      parameters:
+        - name: entryId
+          in: query
+          description: Entry.entryId ** Entry ID
+          required: true
+          type: integer
+          format: int64
+      tags:
+        - Entry
+      responses:
+        200:
+          description: Entry ** A FroodyEntry
+          schema:
+              $ref: '#/definitions/FroodyEntry'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ResponseOk'
+  ## END: /entry/byId
+##################################
+  /entry/popularEntryTypes:
+    get:
+      description: Entry.entryType[ ] ** Get a list of popular entry types on server (includes 1+8 blocks around geohash block)
+      parameters:
+        - name: geohash
+          in: query
+          type: string
+          format: string
+          required: true
+          minLength: 3
+          description: BlockInfo.geohash ** Geohash to get popular types around
+      tags:
+        - Entry
+      responses:
+        200:
+          description: int[ ] ** An array of int's from Entry.entryType
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int32
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ResponseOk'
+## END: /entry/popularEntryTypes
+##################################
+  /entry/add:
+    post:
+      summary: Add a FroodyEntry with details
+      description: The Entry/Add endpoint returns a result, if the transmitted FroodyEntry could be created.
+      parameters:
+        - name: userId
+          in: query
+          type: integer
+          format: int64
+          required: true
+          description: User.userId ** UID which identifies the User
+        - name: geohash
+          in: query
+          type: string
+          format: string
+          required: true
+          minLength: 9
+          description: Entry.geohash ** Geohash (=position) of entry with precision >= 9
+        - name: entryType
+          in: query
+          type: integer
+          format: int32
+          required: true
+          description: Entry.entryType ** Type of entry (e.g. pear, apple,..)
+        - name: distributionType
+          in: query
+          type: integer
+          format: int32
+          required: true
+          description: Entry.distributionType .> Dist-type of entry 
+        - name: certificationType
+          in: query
+          type: integer
+          format: int32
+          required: true
+          description: Entry.certificationType ** Cert-type of entry
+        - name: description
+          in: query
+          type: string
+          format: string
+          required: true
+          description: Entry.description ** Description of entry
+        - name: contact
+          in: query
+          type: string
+          format: string
+          required: true
+          description: Entry.contact ** Contact info of entry
+        - name: address
+          in: query
+          type: string
+          format: string
+          required: true
+          description: Entry.address ** Address of entry (reverse geocoded)
+      tags:
+        - Entry
+      responses:
+        200:
+          description: Result including success or failure
+          schema:
+            $ref: '#/definitions/ResponseEntryAdd'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ResponseOk'
+## END: /entry/add
+##################################
+
+  /entry/delete: #done
+    get:
+      summary: Delete an Entry
+      description: Delete entry by code, userId and entryId
+      parameters:
+        - name: userId
+          in: query
+          description: User.userId ** UID of client
+          required: true
+          type: integer
+          format: int64
+        - name: managementCode
+          in: query
+          description: Entry.managementCode ** Code for check if allowed to delete
+          required: true
+          type: integer
+          format: int32
+        - name: entryId
+          in: query
+          description: Entry.entryId ** Id of entry that should be deleted
+          required: true
+          type: integer
+          format: int64
+      tags:
+        - Entry
+      responses:
+        200:
+          description: If successfull
+          schema:
+            $ref: '#/definitions/ResponseOk'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ResponseOk'
+## END: /entry/delete
+###############################
+######      USER 
+######  Endpoints
+###############################
+  /user/isEnabled:
+    get:
+      description: Check if user is enabled (by User.userId)
+      parameters:
+        - name: userId
+          in: query
+          description: User.userId ** UID of client
+          required: true
+          type: integer
+          format: int64
+      tags:
+        - User
+      responses:
+        200:
+          description: If successfull
+          schema:
+            $ref: '#/definitions/ResponseOk'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ResponseOk'
+## END: /user/isEnabled
+  /user/register:
+    get:
+      summary: User Id
+      description: The User Id endpoint returns the Id of the User, which was currently created.
+      tags:
+        - User
+      responses:
+        200:
+          description: FroodyUser which contains the id for client to use with api
+          schema:
+            $ref: '#/definitions/FroodyUser'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ResponseOk'
+## END: /user/register       
+###############################
+######    Admin 
+######  Endpoints
+###############################
+  /admin/cleanup:
+    get:
+      description: Clean up user and entry database
+      parameters:
+        - name: adminCode
+          in: query
+          type: string
+          format: string
+          required: true
+          description: AdminCode - defined in config.php
+      tags:
+        - Admin
+      responses:
+        200:
+          description: If successfull
+          schema:
+            $ref: '#/definitions/ResponseOk'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ResponseOk'
+## END: /entry/delete
+###############################
+###############################
+######
+######      DEFINITIONS 
+######
+###############################     
+definitions:
+  FroodyEntry:
+    type: object
+    description: Represents an entry in the froody database, with its id, location and other details
+    properties:
+      entryId:
+        type: integer
+        format: int64
+        description: Entry ** Unique ID representing the entry ID in the database
+      userId:
+        type: integer
+        format: int64
+        default: -1
+        description: User.userId ** UserId that this entry belongs to. -1 if not belongs to client
+      geohash:
+        type: string
+        default: ""
+        description: Entry ** GeoHash of location(lat,lng) with precision >= 9
+      creationDate:
+        type: string
+        format: date-time
+        description: Entry ** Timestamp of creation
+      modificationDate:
+        type: string
+        format: date-time
+        description: Entry ** Timestamp of modification
+      entryType:
+        type: integer
+        format: int32
+        description: Entry ** Type of entry (e.g. pear, apple)
+      certificationType:
+        type: integer
+        format: int32
+        default: 0
+        description: Entry ** Type of certification (None=0/bio=1/demeter=2)
+      distributionType:
+        type: integer
+        format: int32
+        default: 0
+        description: Entry ** Type of distribution (Free=0/Selling=1/..)
+      description:
+        type: string
+        default: ""
+        description: Entry ** Description what is offered
+      contact:
+        type: string
+        default: ""
+        description: Entry ** Contact informations
+      address:
+        type: string
+        default: ""
+        description: Entry ** Resolved address from latitude and longitude
+      wasDeleted:
+        type: boolean
+        default: false
+        description: "Entry ** True if the entry was requested for deletion"
+      managementCode:
+        type: integer
+        format: int32
+        default: -1
+        description: Entry ** Management code, or -1 if not belongs to client
+        
+  FroodyUser:
+    type: object
+    description: Represents a user of the application with userId
+    properties:
+      userId:
+        type: integer
+        format: int64
+        description: User ** Unique ID for the client
+        
+  BlockInfo:
+    type: object
+    description: Informations about a Geohash-Block
+    properties:
+      geohash:
+        type: string
+        default: ""
+        description: BlockInfo ** GeoHash of location(lat,lng)
+      modificationDate:
+        type: string
+        format: date-time
+        default: ""
+        description: BlockInfo ** Timestamp of last modification of entries in this block
+      hasBlockBeenModified:
+        type: boolean
+        default: false
+        description: "BlockInfo ** True if the block has changed since requested min modification time"
+
+  ResponseOk:
+    type: object
+    description: General result, returns success or failure of a call
+    properties:
+      success:
+        type: boolean
+        description: "true if successful, false if not"
+
+  ResponseEntryAdd:
+    type: object
+    description: Represents the Result of the /entry/add endpoint
+    properties:
+      entryId:
+        type: integer
+        format: int64
+        description: Entry.entryId ** UID of the entry, which was added to DB
+      managementCode:
+        type: integer
+        format: int32
+        description: Entry.ManagementCode ** Needed for deleting and managing entry
+      creationDate:
+        type: string
+        format: date-time
+        description: Entry ** Timestamp of creation
