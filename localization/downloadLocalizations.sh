@@ -17,14 +17,13 @@ argc=$#
 
 #########################################################
 cd "$SCRIPTDIR"
-DEFAULT_PATH_TO_FROODYANDROID="../../froody-android"
-[ -z $1 ] && DEFAULT_PATH_TO_FROODYANDROID="$1"
-
+APPFOLDER="../../froody-android"
+[ -n "$1" ] && APPFOLDER="$1"
 if [ ! -f "crowdin.yaml" ] ; then
 	echo "project_identifier: froodyapp" > 'crowdin.yaml'
 	echo "base_path: $(realpath '../../froody-android')" >>'crowdin.yaml'
 	echo "api_key: DONT_PUSH_API_KEY" >>'crowdin.yaml'
-	cat  "$DEFAULT_PATH_TO_FROODYANDROID/crowdin.yaml" >> "crowdin.yaml"
+	cat  "$APPFOLDER/crowdin.yaml" >> "crowdin.yaml"
 	echo "# Add all non locality languages here" >> "crowdin.yaml"
 	echo "# (e.g. enUS, enUK, deCH, deAT will automatically go into the right folder)" >> "crowdin.yaml"
 	echo "# Otherwise e.g.  en would get added into the folder enEN (which is wrong)." >> "crowdin.yaml"
@@ -49,6 +48,6 @@ crowdin-cli download -b master
 	printf "\nPress any key to show git diff (q to exit):"
 	read -n 1
 	[ "$REPLY" == "q" ] && printf "\n" && exit
-	cd "$DEFAULT_PATH_TO_FROODYANDROID"
+	cd "$APPFOLDER"
 	git diff
 )
