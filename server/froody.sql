@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `froody_entry` (
 CREATE TABLE IF NOT EXISTS `froody_user` (
   `userId` bigint(20) NOT NULL,
   `creationDate` datetime NOT NULL,
+  `checkDate` datetime NOT NULL,
   PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

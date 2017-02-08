@@ -1,5 +1,5 @@
 export GRP="io.github.froodyapp";export ART="api";export PAC="$GRP.$ART";
-export SWGFILE="/home/$USER/aaCurrent/froody-extras/api/swagger.yaml"
+export SWGFILE="/home/$USER/aaCurrent/froody-extras/server/swagger.yaml"
 
 # git clone https://github.com/swagger-api/swagger-codegen.git
 # mvn clean package -DskipTests
@@ -14,4 +14,4 @@ java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate \
 -D serializableModel=true \
 -i "$SWGFILE" \
 -l java --library=okhttp-gson \
--o /tmp/frood-android__gen/ 
+-o /tmp/SWAGGER_froody-android/ 
