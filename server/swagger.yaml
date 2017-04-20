@@ -68,7 +68,7 @@ paths:
           description: "BlockInfo.geohash ** Geohash (=position) "
         - name: minModificationDate
           in: query
-          description: "BlockInfo.modificationDate ** Timestamp of last known block modification. Make 3 weeks ago to get everything."
+          description: "BlockInfo.modificationDate ** Timestamp of last known block modification. Make ENTRY_LIFETIME_DAYS days ago to get everything."
           required: true
           type: string
           format: date-time
@@ -440,7 +440,7 @@ definitions:
       userCount:
         type: integer
         format: int64
-        description: "User.checkDate ** Count of users checking in the last 3 weeks"
+        description: "User.checkDate ** Count of users checking in the last ENTRY_LIFETIME_DAYS days"
       entryCount:
         type: integer
         format: int64
