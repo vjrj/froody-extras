@@ -23,4 +23,16 @@ echo "  featureGraphic.png   --> 1024x500"
 echo "  promoGraphic.png     --> 180x120"
 echo "  icon                 --> 512x512"
 
+echo ""
+echo "Convert symlinks to normal files"
+echo "cp -Lr $1 /tmp/$1"
+echo "cd /tmp/$1"
+echo "git init"
+echo "git remote add origin git@github.com:froodyapp/froody-screens-latest.git"
+echo "git add ."
+echo "git commit -am 'update screens'"
+echo "git push --force --set-upstream origin master"
+
+
+
 # F-Droid: https://eighthave.gitlab.io/fdroid-website/docs/All_About_Descriptions_Graphics_and_Screenshots/
