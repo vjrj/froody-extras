@@ -1,5 +1,0 @@
-
-    Load entries in a bigger range
-    Load entries around the world if zommed out to world/country map
-    Lot of new languages translated in
-    Available as of today on G-Play | F-Droid expected on 11. Feb.
