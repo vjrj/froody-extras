@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   inkscape:export-ydpi="90"
+   inkscape:export-filename="C:\Documents and Settings\User\Meus documentos\PROJ.INKSCAPE\beringela.png"
+   viewBox="0 0 468.74999 468.75001"
+   inkscape:export-xdpi="90"
+   version="1.1"
+   inkscape:version="0.92.1 r"
+   sodipodi:docname="entry_type__aubergine.svg"
+   width="500"
+   height="500">
+  <defs
+     id="defs4">
+    <radialGradient
+       id="radialGradient5112"
+       gradientUnits="userSpaceOnUse"
+       cy="4952"
+       cx="103.57"
+       gradientTransform="matrix(1,0,0,0.25,0,3714)"
+       r="42.992001"
+       inkscape:collect="always">
+      <stop
+         id="stop5297"
+         style="stop-color:#220055"
+         offset="0" />
+      <stop
+         id="stop5299"
+         style="stop-color:#220055;stop-opacity:0"
+         offset="1" />
+    </radialGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     bordercolor="#666666"
+     inkscape:pageshadow="2"
+     inkscape:window-y="29"
+     pagecolor="#ffffff"
+     inkscape:zoom="0.57848045"
+     inkscape:window-width="1841"
+     inkscape:window-maximized="1"
+     inkscape:window-x="79"
+     showgrid="false"
+     borderopacity="1.0"
+     inkscape:current-layer="g5102"
+     inkscape:cx="-563.9676"
+     inkscape:cy="16.11863"
+     inkscape:window-height="1027"
+     inkscape:pageopacity="0.0"
+     inkscape:document-units="px"
+     inkscape:measure-start="0,0"
+     inkscape:measure-end="0,0" />
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(-34.147,-273.43134)">
+    <g
+       id="g4096"
+       transform="matrix(0.7877584,0.69753963,-0.69753963,0.7877584,515.199,-250.11836)">
+      <g
+         id="g5100"
+         transform="matrix(-0.004602,-0.63438,0.63438,-0.004602,-2612.1,764.65)">
+        <g
+           id="g5102"
+           transform="translate(-525.68,-152.43)">
+          <path
+             id="path5104"
+             d="m 531.81046,4415.5158 c -36.12,150.36 -138.77,518.59 24.873,671.57 33.326,31.155 105.65,29.188 136.8,-4.1455 151.06,-161.66 -15.877,-630.29 -24.873,-663.28 -16.561,-60.721 -122.07,-47.455 -136.8,-4.1456 z"
+             sodipodi:nodetypes="caasc"
+             style="fill:#653ba2;fill-opacity:1;stroke:none;stroke-width:1.57630002px"
+             inkscape:connector-curvature="0" />
+          <path
+             id="path5106"
+             d="m 593.99046,4369.9158 c 3.2033,4.299 12.015,11.626 1.0127,7.215 -8.2782,-3.3189 -42.935,-2.8702 -50.758,9.3669 -14.611,20.02 -15.034,44.649 -18.702,61.138 -3.4128,10.239 -22.093,18.286 -14.462,25.917 18.451,18.451 35.962,-33.164 45.6,-33.164 4.4551,0 14.28,45.6 16.582,45.6 9.5309,0 1.5356,-40.38 4.1455,-45.6 13.604,-27.208 23.723,22.573 24.873,24.873 12.303,24.607 13.315,-34.921 16.582,-41.455 5.2724,-10.545 33.396,45.6 33.164,45.6 -4.1455,0 0,-8.291 0,-12.436 0,-12.862 -2.1133,-20.646 0,-24.873 5.538,-11.076 11.474,38.489 35.252,28.006 7.0598,-3.1125 -14.622,-78.094 -35.252,-90.188 -7.9555,-4.6636 -39.74,-0.5756 -41.455,4.1455 -3.3496,-18.351 -8.3568,-0.7264 0.79143,-19.43 19.151,-63.866 -41.837,-26.315 -17.373,15.285 z"
+             sodipodi:nodetypes="csccsssssssssssccc"
+             style="color:#000000;fill:#009f00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:5.3593998;stroke-linecap:round;stroke-opacity:0.99526002"
+             inkscape:connector-curvature="0" />
+        </g>
+        <ellipse
+           id="path5110"
+           style="color:#000000;fill:url(#radialGradient5112);fill-rule:evenodd"
+           cy="4952"
+           rx="42.992001"
+           transform="translate(-5.8626,-1.9542)"
+           ry="10.748"
+           cx="103.57" />
+      </g>
+    </g>
+  </g>
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

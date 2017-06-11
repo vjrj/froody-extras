@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg1"
+   sodipodi:docname="entry_type__honey.svg"
+   viewBox="0 0 240.84 230.55"
+   sodipodi:version="0.32"
+   version="1.1"
+   inkscape:version="0.92.1 r"
+   width="256.896"
+   height="245.92">
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient859"
+       x2="0.20732"
+       y1="0.50781"
+       x1="-1.0122"
+       y2="0.70311999">
+      <stop
+         id="stop857"
+         style="stop-color:#ffffff;stop-opacity:.5"
+         offset="0" />
+      <stop
+         id="stop858"
+         style="stop-color:#ffffff;stop-opacity:.25"
+         offset="1" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     bordercolor="#666666"
+     inkscape:pageshadow="2"
+     inkscape:window-y="29"
+     pagecolor="#ffffff"
+     inkscape:window-height="1027"
+     inkscape:window-maximized="1"
+     inkscape:zoom="2"
+     inkscape:window-x="79"
+     showgrid="false"
+     borderopacity="1.0"
+     inkscape:current-layer="g842"
+     inkscape:cx="123.53832"
+     inkscape:cy="136.62628"
+     inkscape:window-width="1841"
+     inkscape:pageopacity="0.0" />
+  <g
+     id="g842"
+     transform="translate(-8.439,-11.791)">
+    <path
+       id="path854"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccc"
+       style="fill:#ffc62a;fill-rule:evenodd;stroke:#ff9500;stroke-width:2.5"
+       d="m 153.91,222.46 -62.308,18.63 -48.069,-42.16 14.242,-60.8 62.315,-18.63 48.07,42.17 z" />
+    <path
+       id="path853"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccc"
+       style="fill:#ffc62a;fill-rule:evenodd;stroke:#ff9500;stroke-width:2.5"
+       d="m 233.79,140.35 -62.31,18.63 -48.07,-42.16 14.24,-60.794 62.31,-18.631 48.07,42.164 z" />
+    <path
+       id="path852"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccc"
+       style="fill:#ffc62a;fill-rule:evenodd;stroke:#ff9500;stroke-width:2.5"
+       d="M 120.07,116 57.759,134.63 9.689,92.466 23.931,31.672 86.243,13.041 134.31,55.205 Z" />
+  </g>
+  <metadata
+     id="metadata15">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title></dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <metadata
+     id="metadata17">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Clipart by Nicu Buculei - bee</dc:title>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Nicu Buculei</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
