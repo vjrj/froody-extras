@@ -1,27 +1,15 @@
 package io.github.froodyapp.activity;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.SpannableString;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
-import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Random;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import ch.hsr.geohash.GeoHash;
 import io.github.froodyapp.R;
 import io.github.froodyapp.api.model_.FroodyEntry;
 import io.github.froodyapp.api.model_.FroodyUser;
@@ -29,9 +17,6 @@ import io.github.froodyapp.model.FroodyEntryPlus;
 import io.github.froodyapp.service.EntryPublisher;
 import io.github.froodyapp.ui.BaseFragment;
 import io.github.froodyapp.util.AppSettings;
-import io.github.froodyapp.util.FroodyEntryFormatter;
-import io.github.froodyapp.util.Helpers;
-import io.github.froodyapp.util.SimpleMarkdownParser;
 
 /**
  * Activity for information about the app
@@ -70,7 +55,7 @@ public class DevFragment extends BaseFragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         button.setOnClickListener(this);
         Context context = getContext();
-        appSettings = new AppSettings(context);
+        appSettings = AppSettings.get();
         random = new Random();
 
         // Not on default server ;)
@@ -93,7 +78,7 @@ public class DevFragment extends BaseFragment implements View.OnClickListener {
         fep.setDescription("Nimm soviele Äpfel wie du brauchst. Baum befindet sich an einem öffentlichen Platz");
 
         // One german entry
-        FroodyEntryPlus tmp = fillWithRandomData(fep, 48.20198,13.13342, 0);
+        FroodyEntryPlus tmp = fillWithRandomData(fep, 48.20198, 13.13342, 0);
         tmp.setCertificationType(0);
         tmp.setDistributionType(0);
         tmp.setEntryType(2);
@@ -101,22 +86,22 @@ public class DevFragment extends BaseFragment implements View.OnClickListener {
 
         // One english entry
         tmp = FroodyEntryPlus.getCopy(tmp);
-        tmp.loadGeohashFromLocation(48.20193,13.13281, 9);
+        tmp.loadGeohashFromLocation(48.20193, 13.13281, 9);
         tmp.setEntryType(3);
         tmp.setDescription("Take what you need. Tree is located at a public location.");
         pub.add(tmp);
 
         // Another german entry
         tmp = FroodyEntryPlus.getCopy(tmp);
-        tmp.loadGeohashFromLocation(48.20124,13.13397, 9);
+        tmp.loadGeohashFromLocation(48.20124, 13.13397, 9);
         tmp.setEntryType(13);
         pub.add(tmp);
 
         // Random entries
         for (int i = 0; i < 10; i++)
-            pub.add(fillWithRandomData(fep, 48.20198,13.13342, 1));
+            pub.add(fillWithRandomData(fep, 48.20198, 13.13342, 1));
         for (int i = 0; i < 10; i++)
-            pub.add(fillWithRandomData(fep, 48.20198,13.13342, 2));
+            pub.add(fillWithRandomData(fep, 48.20198, 13.13342, 2));
 
 
         final ArrayList<FroodyEntryPlus> pub2 = pub;
@@ -173,6 +158,5 @@ public class DevFragment extends BaseFragment implements View.OnClickListener {
         getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
         return true;
     }
-
 }
-﻿
+
