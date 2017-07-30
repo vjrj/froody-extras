@@ -43,6 +43,15 @@ type crowdin-cli  > /dev/null 2>&1 || bash -c 'echo "Crowdin CLI is not installe
 # Load latest translations
 crowdin-cli download -b master
 
+# Delete empty translation files
+cd "$APPFOLDER/app/src/main/res"
+find . -name 'strings*.xml' | while read line; do
+	if ! grep -q "<string" "$line" ; then
+		echo -e "\e[0;31m[Empty] \e[0m Deleting $(echo $line | cut -d/ -f2-)"
+		rm "$line"
+	fi
+done
+
 # Show git diff
 (
 	printf "\nPress any key to show git diff (q to exit):"
