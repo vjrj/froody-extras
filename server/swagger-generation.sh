@@ -1,6 +1,6 @@
 #!/bin/bash
 export GRP="io.github.froodyapp";export ART="api";export PAC="$GRP.$ART";
-export SWGFILE="/home/$USER/aaCurrent/froody-extras/server/swagger.yaml"
+export SWGFILE="/home/$USER/aaDev/froody-extras/server/swagger.yaml"
 export TAR="/tmp/SWAGGER_froody-android"
 
 git clone https://github.com/swagger-api/swagger-codegen.git
@@ -17,6 +17,7 @@ java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate \
 -D hideGenerationTimestamp=true \
 -D serializableModel=true \
 -i "$SWGFILE" \
+-D dateLibrary=joda \
 -l java --library=okhttp-gson \
 -o "$TAR/"
 
