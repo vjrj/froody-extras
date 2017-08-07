@@ -5,7 +5,8 @@
 # Arguments:
 #   $1: Create a metadata folder for this version (example:  v1.0.13)
 #   $2: Symlink metadata from this folder if not existing
-#   $3: Comma seperated list of languages the process should happen for
+#   $3: Pass "true" if empty metadata textfiles should be created (description, name, summary)
+#   $4: Comma seperated list of languages the process should happen for
 
 [ -z "$1" ] && echo "Exit: Bad arguments" && exit
 
@@ -13,12 +14,13 @@
 DEFAULT_LANG="en"
 TARGET_LANGS="de"
 PUSH_TO_URL="git@github.com:froodyapp/froody-metadata-latest.git"
-CREATE_EMPTY_FILES="true"
+CREATE_EMPTY_FILES="false"
 
 # Parse args
-VNEW="$1"
-VOLD="$2"
-[ -n "$3" ] && TARGET_LANGS="$DEFAULT_LANG,$3" || TARGET_LANGS="$DEFAULT_LANG,$TARGET_LANGS"
+VNEW="${1%/}"
+VOLD="${2%/}"
+[ "$3" == "true" ] && CREATE_EMPTY_FILES="true"
+[ -n "$4" ] && TARGET_LANGS="$DEFAULT_LANG,$4" || TARGET_LANGS="$DEFAULT_LANG,$TARGET_LANGS"
 
 # Application vars
 RCol='\e[0m' ; Pur='\e[0;35m'; Gre='\e[0;32m'; Red='\e[0;31m'; Mark="\xE2\x9C\x94"
@@ -75,7 +77,7 @@ echo "Convert symlinks to normal files"
 echo "cp -Lr $VNEW /tmp/$VNEW"
 echo "cd /tmp/$VNEW"
 echo "git init"
-echo "git remote add origin git@github.com:froodyapp/froody-metadata-latest.git"
+echo "git remote add origin $PUSH_TO_URL"
 echo "git add ."
 echo "git commit -am 'update screens'"
 echo "git push --force --set-upstream origin master"
