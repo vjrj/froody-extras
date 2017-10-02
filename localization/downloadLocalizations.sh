@@ -52,6 +52,10 @@ find . -name 'strings*.xml' | while read line; do
 	fi
 done
 
+# Fix some export errors..
+dir="values-kab-rKAB" && [ -d "$dir" ] && mv "$dir" "values-kab"
+
+
 # Show git diff
 (
 	printf "\nPress any key to show git diff (q to exit):"

@@ -74,7 +74,7 @@ public class DevFragment extends BaseFragment implements View.OnClickListener {
         //
         FroodyEntryPlus fep = new FroodyEntryPlus(new FroodyEntry());
         fep.setAddress("Wolloester, Burgkirchen");
-        fep.setContact("Gregor\nMail: gregor@froody-app.at\nTel: +43 677 42123123");
+        fep.setContact("Gregor\nMail: gregor@froodyapp.net\nTel: +43 677 42123123");
         fep.setDescription("Nimm soviele Äpfel wie du brauchst. Baum befindet sich an einem öffentlichen Platz");
 
         // One german entry
