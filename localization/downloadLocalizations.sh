@@ -4,7 +4,7 @@
 #   Title
 #
 #   Created by Gregor Santer (gsantner), 2016
-#   https://gsantner.github.io/
+#   http://gsantner.net/
 #
 #########################################################
 

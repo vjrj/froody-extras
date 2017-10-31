@@ -1,5 +1,5 @@
 #!/bin/sh
-# Created by Gregor Santner <https://gsantner.github.io>
+# Created by Gregor Santner <http://gsantner.net>
 # License of this script: CC0 1.0 Universal
 #
 # Arguments:
@@ -88,9 +88,6 @@ echo "# Convert symlinks to normal files"
 echo "tmpdir=\`mktemp -d\`"
 echo "cp -Lr $VNEW \$tmpdir/$VNEW"
 echo "cd \$tmpdir/$VNEW"
-echo 'echo "Contains a copy of the applications latest metadata" > README'
-echo 'echo "This repositories data will always be replaced with the latest data" >> README'
-echo 'echo "from the archive to save space and clone time." >> README'
 for linkLang in $(echo $LINK_LANGS | tr ";" "\n") ; do
 	src=`echo $linkLang | cut -d: -f1`
 	tar=`echo $linkLang | cut -d: -f2`
@@ -98,8 +95,10 @@ for linkLang in $(echo $LINK_LANGS | tr ";" "\n") ; do
 		echo ln -s "$src" "$tar"
 	fi
 done
-echo "git init"
-echo "git remote add origin $PUSH_TO_URL"
+echo "git clone $PUSH_TO_URL METADATA_TEMP_CLONE"
+echo "mv METADATA_TEMP_CLONE/.git ."
+echo "rm -R METADATA_TEMP_CLONE"
 echo "git add ."
 echo "git commit -am \"update to latest metadata - $VNEW\""
-echo "git push --force --set-upstream origin master"
+echo "git diff HEAD~1  --color | cat"
+echo "git push"

@@ -1,5 +1,5 @@
 #!/bin/sh
-# Created by Gregor Santner <https://gsantner.github.io>
+# Created by Gregor Santner <http://gsantner.net>
 # License of this script: CC0 1.0 Universal
 #
 
